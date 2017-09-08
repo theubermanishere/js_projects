@@ -60,7 +60,6 @@
 <script>
 
 window.addEventListener('keydown', function(e) {
-    console.log(e.keyCode)
     var audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
     var key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
     if(!audio) return; // This will prevent the audio from playing all together.
@@ -72,8 +71,10 @@ window.addEventListener('keydown', function(e) {
 )
 
 window.addEventListener('keyup', function(e) {
-    console.log(e.
-
+    var key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+    key.classList.remove('playing');
+}
+)
 
 </script>
 
