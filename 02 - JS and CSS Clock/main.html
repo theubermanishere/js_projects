@@ -77,10 +77,28 @@ function secChange() {
     const secHand = document.querySelector('.second-hand');
     const secT = (sec/60) * 360 + 90; 
     secHand.style.transform = `rotate(${secT}deg)`;
-    console.log(sec);
 }
 
+function minChange() {
+    const now = new Date();
+    const min = now.getMinutes();
+    const minHand = document.querySelector('.min-hand');
+    const minT = (min/60) * 360 + 90;
+    minHand.style.transform = `rotate(${minT}deg)`;
+}
+
+function hourChange() {
+    const now = new Date();
+    const hour = now.getHours();
+    const hourHand = document.querySelector('.hour-hand');
+    const hourT = (hour%12/12) * 360 + 90;
+    hourHand.style.transform = `rotate(${hourT}deg)`;
+}
+
+
 setInterval(secChange, 1000);
+setInterval(minChange, 1000);
+setInterval(hourChange, 1000);
 
 
 
