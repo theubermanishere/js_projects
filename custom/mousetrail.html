@@ -1,0 +1,58 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>MouseTrail</title>
+    <style>
+    body {
+        margin: 0 auto;
+        font-family: Operator Mono Book;
+        font-size: 80%;
+    }
+    
+    .trail {
+        border-radius: 50%; 
+        height:6px; 
+        width: 6px; 
+        background: teal; 
+        position: absolute;
+    }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+    </div>
+
+    <script>
+
+var trail = Array()
+
+for(var i = 0; i < 10 ; i++) {
+    var a = document.createElement('div');
+    a.classList = 'trail';
+    trail.push(a);
+            }
+
+var container = document.getElementById("container");
+
+for(var i=0; i < 10 ; i++ )
+{
+    container.appendChild(trail[i]);
+}
+
+var counter = 0
+
+document.addEventListener("mousemove", function (e) {
+    counter++;
+    counter = counter%10;
+    var x = e.clientX;
+    var y = e.clientY;
+    trail[counter].style.left = x;
+    trail[counter].style.top = y;
+});
+    
+    
+    
+    </script>
+</body>
+</html>
