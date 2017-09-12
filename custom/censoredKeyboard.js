@@ -1,15 +1,15 @@
 var key = document.querySelector('#censored');
 
-const censoredLetters = {1:'q',2:'w',3:'x'}
+const censoredLetters = {1:81,2:87,3:88}
 
 function censor(e) {
-    for (var letter in censoredLetters)
-    {
-        if (key.value.toLowerCase().endsWith(censoredLetters[letter]))
-            {
-            key.value = key.value.slice(0,-1);
-            }
+    for ( i in censoredLetters){
+
+        if (e.keyCode == censoredLetters[i]) {
+            e.preventDefault();
         }
-}
+    }
+   }
         
-document.addEventListener('keyup', censor);
+document.addEventListener('keydown', censor);
+
